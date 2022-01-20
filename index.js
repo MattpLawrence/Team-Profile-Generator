@@ -1,5 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
+const Employee = require("./lib/employee");
 
 inquirer
   .prompt([
@@ -16,7 +17,8 @@ inquirer
     },
   ])
   .then((response) => {
-    getRole(response);
+    let newEmployee = new Employee(response);
+    console.log(response);
   });
 
 let getRole = (response) => {
@@ -30,3 +32,8 @@ let getRole = (response) => {
     console.log("You must select a role.");
   }
 };
+
+// let destResponse = (response) => {
+//   name = response.name;
+//   role = response.role;
+// };
