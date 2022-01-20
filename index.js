@@ -16,7 +16,7 @@ inquirer
     },
   ])
   .then((response) => {
-    console.log(response);
+    getRole(response);
   });
 
 let getRole = (response) => {
@@ -26,5 +26,7 @@ let getRole = (response) => {
     console.log(`getRole = Engineer`);
   } else if (response.role === "Intern") {
     console.log(`getRole = Intern`);
+  } else {
+    console.log("You must select a role.");
   }
 };
