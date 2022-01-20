@@ -1,0 +1,22 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "dynamically create a team profile using command line prompts.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MattpLawrence/Team-Profile-Generator.git"
+  },
+  "author": "Matthew Lawrence",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MattpLawrence/Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/MattpLawrence/Team-Profile-Generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
+}
