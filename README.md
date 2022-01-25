@@ -53,7 +53,7 @@ To test the application run "npm i" then "npm run test"
 
 ## Video Walk Through: <a name="video"></a>
 
-[Video](https://watch.screencastify.com/v/SZlbJ2DFqgP2nNV3PvW6)
+[Video](https://watch.screencastify.com/v/Hl4o4ybWkyr0McuzVrzy)
 
 ## Questions: <a name="username"></a>
 
