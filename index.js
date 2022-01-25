@@ -59,6 +59,8 @@ function init() {
     .then((response) => {
       if (response.init === "Yes") {
         firstPrompts();
+      } else {
+        return;
       }
     });
 }
@@ -119,10 +121,12 @@ function getIntern(firstResponse) {
         firstResponse.name,
         firstResponse.id,
         firstResponse.email,
-        stdResponse.github
+        stdResponse.school
       );
       console.log(newIntern);
       console.log(newIntern.getRole());
+      memberArray.push(newIntern);
+      console.log(` role: ${memberArray[0].role}`);
       init();
     });
 }
