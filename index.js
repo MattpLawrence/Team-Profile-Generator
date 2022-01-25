@@ -45,7 +45,7 @@ function firstPrompts() {
     });
 }
 init();
-
+//check to see if a character should be created
 function init() {
   inquirer
     .prompt([
@@ -65,7 +65,7 @@ function init() {
       }
     });
 }
-
+//create new manager
 function getManager(firstResponse) {
   inquirer
     .prompt([
@@ -88,6 +88,7 @@ function getManager(firstResponse) {
       init();
     });
 }
+//create new engineer
 function getEngineer(firstResponse) {
   inquirer
     .prompt([
@@ -106,10 +107,12 @@ function getEngineer(firstResponse) {
       );
       console.log(newEngineer);
       console.log(newEngineer.getRole());
+      console.log(newEngineer.getHTML());
       memberArray.push(newEngineer);
       init();
     });
 }
+//create new intern
 function getIntern(firstResponse) {
   inquirer
     .prompt([
@@ -133,7 +136,7 @@ function getIntern(firstResponse) {
       init();
     });
 }
-
+//write html doc
 createWebPage = (finalString) => {
   fs.writeFile("index.html", finalString, function (err) {
     if (err) throw err;
@@ -142,8 +145,23 @@ createWebPage = (finalString) => {
 };
 
 function createFinalContent() {
-  let arrFinalContent = [];
+  //sort each type of member into their own array
+  let arrManager = [];
+  let arrEngineer = [];
+  let arrIntern = [];
+
   memberArray.forEach((mem) => {
     console.log(mem.role);
+    if (mem.role === "Manager") {
+      arrManager.push(mem.html);
+    } else if (mem.role === "Engineer") {
+      arrEngineer.push(mem.html);
+    } else if (mem.role === "Intern") {
+      arrIntern.push(mem.html);
+    } else {
+      console.log(`${mem.name} has an invalid role.`);
+    }
   });
+  // combine all three arrays, now members are in order from managers, to engineers, to interns.
+  const arrFinal = arrManager.concat(arrEngineer, arrIntern);
 }
