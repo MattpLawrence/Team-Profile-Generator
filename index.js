@@ -60,6 +60,7 @@ function init() {
       if (response.init === "Yes") {
         firstPrompts();
       } else {
+        createFinalContent();
         return;
       }
     });
@@ -139,3 +140,10 @@ createWebPage = (finalString) => {
     console.log("Generated");
   });
 };
+
+function createFinalContent() {
+  let arrFinalContent = [];
+  memberArray.forEach((mem) => {
+    console.log(mem.role);
+  });
+}
