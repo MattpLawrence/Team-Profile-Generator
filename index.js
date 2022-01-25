@@ -132,3 +132,10 @@ function getIntern(firstResponse) {
       init();
     });
 }
+
+createWebPage = (finalString) => {
+  fs.writeFile("index.html", finalString, function (err) {
+    if (err) throw err;
+    console.log("Generated");
+  });
+};
