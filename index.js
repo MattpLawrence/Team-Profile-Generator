@@ -83,6 +83,7 @@ function getManager(firstResponse) {
       );
       console.log(newManager);
       console.log(newManager.getRole());
+      memberArray.push(newManager);
       init();
     });
 }
@@ -104,6 +105,7 @@ function getEngineer(firstResponse) {
       );
       console.log(newEngineer);
       console.log(newEngineer.getRole());
+      memberArray.push(newEngineer);
       init();
     });
 }
