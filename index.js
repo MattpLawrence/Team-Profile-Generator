@@ -2,7 +2,10 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const Employee = require("./lib/employee");
 const Engineer = require("./lib/engineer");
+const Manager = require("./lib/manager");
+const Intern = require("./lib/intern");
 const { get } = require("lodash");
+let memberArray = [];
 
 function firstPrompts() {
   inquirer
@@ -31,7 +34,7 @@ function firstPrompts() {
     ])
     .then((response) => {
       if (response.role === "Team Manager") {
-        // getManager(response);
+        getManager(response);
       } else if (response.role === "Engineer") {
         getEngineer(response);
       } else if (response.role === "Intern") {
@@ -60,6 +63,27 @@ function init() {
     });
 }
 
+function getManager(firstResponse) {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "Manager's office number?",
+        name: "officeNumber",
+      },
+    ])
+    .then((mngResponse) => {
+      const newManager = new Manager(
+        firstResponse.name,
+        firstResponse.id,
+        firstResponse.email,
+        mngResponse.officeNumber
+      );
+      console.log(newManager);
+      console.log(newManager.getRole());
+      init();
+    });
+}
 function getEngineer(firstResponse) {
   inquirer
     .prompt([
@@ -78,5 +102,27 @@ function getEngineer(firstResponse) {
       );
       console.log(newEngineer);
       console.log(newEngineer.getRole());
+      init();
+    });
+}
+function getIntern(firstResponse) {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "Intern's school?",
+        name: "school",
+      },
+    ])
+    .then((stdResponse) => {
+      const newIntern = new Intern(
+        firstResponse.name,
+        firstResponse.id,
+        firstResponse.email,
+        stdResponse.github
+      );
+      console.log(newIntern);
+      console.log(newIntern.getRole());
+      init();
     });
 }
