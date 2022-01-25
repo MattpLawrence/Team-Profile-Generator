@@ -164,4 +164,7 @@ function createFinalContent() {
   });
   // combine all three arrays, now members are in order from managers, to engineers, to interns.
   const arrFinal = arrManager.concat(arrEngineer, arrIntern);
+  console.log(arrFinal);
+  let finalString = arrFinal.join();
+  console.log(finalString);
 }
